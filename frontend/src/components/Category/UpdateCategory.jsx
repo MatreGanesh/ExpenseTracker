@@ -25,7 +25,7 @@ const validationSchema = Yup.object({
 const UpdateCategory = () => {
   //Params
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   //Navigate
   const navigate = useNavigate();
 
@@ -93,7 +93,7 @@ const UpdateCategory = () => {
         <select
           {...formik.getFieldProps("type")}
           id="type"
-          className="w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="w-full p-2 mt-1 border-b-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
         >
           <option value="">Select transaction type</option>
           <option value="income">Income</option>
@@ -115,7 +115,7 @@ const UpdateCategory = () => {
           {...formik.getFieldProps("name")}
           placeholder="Name"
           id="name"
-          className="w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 py-2 px-3"
+          className="w-full mt-1 border-b-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 py-2 px-3"
         />
         {formik.touched.name && formik.errors.name && (
           <p className="text-red-500 text-xs italic">{formik.errors.name}</p>

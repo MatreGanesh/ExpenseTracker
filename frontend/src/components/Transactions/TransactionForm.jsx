@@ -12,7 +12,7 @@ import {
 import { listCategoriesAPI } from "../../services/category/categoryService";
 import { addTransactionAPI } from "../../services/transactions/transactionService";
 import AlertMessage from "../Alert/AlertMessage";
-import { LuCircleChevronLeft } from "react-icons/lu";
+import { LuCircleChevronLeft, LuCircleChevronRight } from "react-icons/lu";
 
 const validationSchema = Yup.object({
   type: Yup.string()
@@ -70,28 +70,21 @@ const TransactionForm = () => {
       onSubmit={formik.handleSubmit}
       className="max-w-lg mx-auto my-10 bg-white p-6 rounded-lg shadow-lg space-y-6"
     >
-
-      <div className="relative flex items-start justify-center">
-        {/* Left icon, absolutely positioned */}
-        <Link to={'/dashboard'} className="absolute left-0 top-0">
-          <LuCircleChevronLeft className="w-8 h-8 text-green-600 animate-bounce cursor-pointer" />
+      <div className="flex items-center justify-between mb-4">
+        <Link to={'/dashboard'}>
+          <LuCircleChevronLeft className="w-8 h-8 text-green-500 animate-bounce hover:text-red-500 cursor-pointer" />
         </Link>
-
-        {/* Centered text */}
         <div className="text-center">
           <h2 className="text-2xl font-semibold text-gray-800">
             Transaction Details
           </h2>
           <p className="text-gray-600">Fill in the details below.</p>
         </div>
+        <Link to={'/add-category'}>
+          <LuCircleChevronRight className="w-8 h-8 text-green-500 animate-bounce hover:text-red-500 cursor-pointer" />
+        </Link>
       </div>
 
-      {/* <div className="text-center">
-        <h2 className="text-2xl font-semibold text-gray-800">
-          Transaction Details
-        </h2>
-        <p className="text-gray-600">Fill in the details below.</p>
-      </div> */}
       {/* Display alert message */}
 
       {isError && (
@@ -118,7 +111,7 @@ const TransactionForm = () => {
         <select
           {...formik.getFieldProps("type")}
           id="type"
-          className="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="block w-full p-2 mt-1 border-b-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
         >
           <option value="">Select transaction type</option>
           <option value="income">Income</option>
@@ -140,7 +133,7 @@ const TransactionForm = () => {
           {...formik.getFieldProps("amount")}
           id="amount"
           placeholder="Amount"
-          className="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="w-full border-b-2 border-gray-300 rounded-md shadow-sm py-2 px-3 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
         />
         {formik.touched.amount && formik.errors.amount && (
           <p className="text-red-500 text-xs italic">{formik.errors.amount}</p>
@@ -156,7 +149,7 @@ const TransactionForm = () => {
         <select
           {...formik.getFieldProps("category")}
           id="category"
-          className="w-full capitalize border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="w-full capitalize border-b-2 border-gray-300 rounded-md shadow-sm py-2 px-3 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
         >
           <option defaultValue="" hidden>Select a category</option>
           {data?.map((category) => {
@@ -184,7 +177,7 @@ const TransactionForm = () => {
           type="date"
           {...formik.getFieldProps("date")}
           id="date"
-          className="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="w-full border-b-2 border-gray-300 rounded-md shadow-sm py-2 px-3 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
         />
         {formik.touched.date && formik.errors.date && (
           <p className="text-red-500 text-xs italic">{formik.errors.date}</p>
@@ -202,7 +195,7 @@ const TransactionForm = () => {
           id="description"
           placeholder="Description"
           rows="3"
-          className="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="w-full border-b-2 border-gray-300 rounded-md shadow-sm py-2 px-3 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
         ></textarea>
         {formik.touched.description && formik.errors.description && (
           <p className="text-red-500 text-xs italic">

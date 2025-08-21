@@ -141,7 +141,7 @@ const TransactionList = () => {
           {filteredTransactions?.map((transaction) => (
             <li
               key={transaction._id}
-              className="bg-white p-3 rounded-md shadow border border-gray-200 flex justify-between items-center"
+              className="bg-white p-3 rounded-md shadow border border-gray-200 flex justify-between items-start"
             >
               <div className="space-y-2">
                 <span className="font-medium text-gray-600">

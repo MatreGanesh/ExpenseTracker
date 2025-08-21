@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { LuCircleChevronLeft } from "react-icons/lu";
-
+import { LuCircleChevronLeft, LuCircleChevronRight } from "react-icons/lu";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
@@ -52,19 +51,19 @@ const AddCategory = () => {
       onSubmit={formik.handleSubmit}
       className="max-w-lg mx-auto my-10 bg-white p-6 rounded-lg shadow-lg space-y-6"
     >
-      <div className="relative flex items-start justify-center">
-        {/* Left icon, absolutely positioned */}
-        <Link to={'/add-transaction'} className="absolute left-0 top-0">
-          <LuCircleChevronLeft className="w-8 h-8 text-green-600 animate-bounce cursor-pointer" />
+      <div className="flex items-center justify-between mb-4">
+        <Link to={'/add-transaction'}>
+          <LuCircleChevronLeft className="w-8 h-8 text-green-500 animate-bounce hover:text-red-500 cursor-pointer" />
         </Link>
-
-        {/* Centered text */}
         <div className="text-center">
           <h2 className="text-2xl font-semibold text-gray-800">
             Add New Category
           </h2>
           <p className="text-gray-600">Fill in the details below.</p>
         </div>
+        <Link to={'/categories'}>
+          <LuCircleChevronRight className="w-8 h-8 text-green-500 animate-bounce hover:text-red-500 cursor-pointer" />
+        </Link>
       </div>
 
       {/* Display alert message */}
@@ -95,7 +94,7 @@ const AddCategory = () => {
         <select
           {...formik.getFieldProps("type")}
           id="type"
-          className="w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="w-full p-2 mt-1 border-b-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
         >
           <option value="">Select transaction type</option>
           <option value="income">Income</option>
@@ -117,7 +116,7 @@ const AddCategory = () => {
           {...formik.getFieldProps("name")}
           placeholder="Name"
           id="name"
-          className="w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 py-2 px-3"
+          className="w-full mt-1 border-b-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 py-2 px-3"
         />
         {formik.touched.name && formik.errors.name && (
           <p className="text-red-500 text-xs italic">{formik.errors.name}</p>

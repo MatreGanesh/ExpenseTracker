@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTrash, FaEdit } from "react-icons/fa";
+import { LuCircleChevronLeft, LuCircleChevronRight } from "react-icons/lu";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -7,7 +8,6 @@ import {
   listCategoriesAPI,
 } from "../../services/category/categoryService";
 import AlertMessage from "../Alert/AlertMessage";
-import { LuCircleChevronLeft } from "react-icons/lu";
 
 const CategoriesList = () => {
   //fetching
@@ -41,12 +41,12 @@ const CategoriesList = () => {
   };
   return (
     <div className="max-w-md mx-auto my-10 bg-white p-6 rounded-lg shadow-lg">
+
       <div className="relative flex items-start justify-center mb-4">
         {/* Left icon, absolutely positioned */}
         <Link to={'/add-category'} className="absolute left-0 top-0">
           <LuCircleChevronLeft className="w-8 h-8 text-green-600 animate-bounce cursor-pointer" />
         </Link>
-
         {/* Centered text */}
         <div className="text-center">
           <h2 className="text-2xl font-semibold text-gray-800">
@@ -54,7 +54,6 @@ const CategoriesList = () => {
           </h2>
         </div>
       </div>
-      {/* <h2 className="text-2xl font-semibold text-gray-800 mb-4">Categories</h2> */}
       {/* Display message */}
       {isLoading && <AlertMessage type="loading" message="Loading" />}
       {isError && (
