@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import {
@@ -12,6 +12,7 @@ import {
 import { listCategoriesAPI } from "../../services/category/categoryService";
 import { addTransactionAPI } from "../../services/transactions/transactionService";
 import AlertMessage from "../Alert/AlertMessage";
+import { LuCircleChevronLeft } from "react-icons/lu";
 
 const validationSchema = Yup.object({
   type: Yup.string()
@@ -69,12 +70,28 @@ const TransactionForm = () => {
       onSubmit={formik.handleSubmit}
       className="max-w-lg mx-auto my-10 bg-white p-6 rounded-lg shadow-lg space-y-6"
     >
-      <div className="text-center">
+
+      <div className="relative flex items-start justify-center">
+        {/* Left icon, absolutely positioned */}
+        <Link to={'/dashboard'} className="absolute left-0 top-0">
+          <LuCircleChevronLeft className="w-8 h-8 text-green-600 animate-bounce cursor-pointer" />
+        </Link>
+
+        {/* Centered text */}
+        <div className="text-center">
+          <h2 className="text-2xl font-semibold text-gray-800">
+            Transaction Details
+          </h2>
+          <p className="text-gray-600">Fill in the details below.</p>
+        </div>
+      </div>
+
+      {/* <div className="text-center">
         <h2 className="text-2xl font-semibold text-gray-800">
           Transaction Details
         </h2>
         <p className="text-gray-600">Fill in the details below.</p>
-      </div>
+      </div> */}
       {/* Display alert message */}
 
       {isError && (

@@ -77,7 +77,7 @@ const TransactionList = () => {
           name="startDate"
           value={filters.startDate}
           onChange={handleFilterChange}
-          className="p-2 rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="p-2 rounded-lg border-b-2 border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
         />
         {/* End Date */}
         <input
@@ -85,7 +85,7 @@ const TransactionList = () => {
           name="endDate"
           value={filters.endDate}
           onChange={handleFilterChange}
-          className="p-2 rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+          className="p-2 rounded-lg border-b-2 border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
         />
         {/* Type */}
         <div className="relative">
@@ -93,7 +93,7 @@ const TransactionList = () => {
             name="type"
             value={filters.type}
             onChange={handleFilterChange}
-            className="w-full p-2 rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 appearance-none"
+            className="w-full p-2 rounded-lg border-b-2 border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 appearance-none"
           >
             <option value="">All Types</option>
             <option value="income">Income</option>
@@ -107,7 +107,7 @@ const TransactionList = () => {
             name="category"
             value={filters.category}
             onChange={handleFilterChange}
-            className="w-full p-2 rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 appearance-none"
+            className="w-full p-2 rounded-lg border-b-2 border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 appearance-none"
           >
             <option value="All">All Categories</option>
             <option value="Uncategorized">Uncategorized</option>

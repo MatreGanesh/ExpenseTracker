@@ -33,6 +33,7 @@ const RegistrationForm = () => {
       email: "",
       password: "",
       username: "",
+      confirmPassword: "",
     },
     // Validations
     validationSchema,

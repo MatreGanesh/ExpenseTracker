@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { LuCircleChevronLeft } from "react-icons/lu";
+
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
@@ -9,7 +11,7 @@ import {
 } from "react-icons/fa";
 import { SiDatabricks } from "react-icons/si";
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addCategoryAPI } from "../../services/category/categoryService";
 import AlertMessage from "../Alert/AlertMessage";
 
@@ -50,12 +52,21 @@ const AddCategory = () => {
       onSubmit={formik.handleSubmit}
       className="max-w-lg mx-auto my-10 bg-white p-6 rounded-lg shadow-lg space-y-6"
     >
-      <div className="text-center">
-        <h2 className="text-2xl font-semibold text-gray-800">
-          Add New Category
-        </h2>
-        <p className="text-gray-600">Fill in the details below.</p>
+      <div className="relative flex items-start justify-center">
+        {/* Left icon, absolutely positioned */}
+        <Link to={'/add-transaction'} className="absolute left-0 top-0">
+          <LuCircleChevronLeft className="w-8 h-8 text-green-600 animate-bounce cursor-pointer" />
+        </Link>
+
+        {/* Centered text */}
+        <div className="text-center">
+          <h2 className="text-2xl font-semibold text-gray-800">
+            Add New Category
+          </h2>
+          <p className="text-gray-600">Fill in the details below.</p>
+        </div>
       </div>
+
       {/* Display alert message */}
       {isError && (
         <AlertMessage
