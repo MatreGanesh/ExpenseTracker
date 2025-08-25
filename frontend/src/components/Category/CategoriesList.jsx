@@ -45,7 +45,7 @@ const CategoriesList = () => {
       <div className="relative flex items-start justify-center mb-4">
         {/* Left icon, absolutely positioned */}
         <Link to={'/add-category'} className="absolute left-0 top-0">
-          <LuCircleChevronLeft className="w-8 h-8 text-green-600 animate-bounce cursor-pointer" />
+          <LuCircleChevronLeft className="w-8 h-8 text-green-600 animate-bounce cursor-pointer hover:text-red-500" />
         </Link>
         {/* Centered text */}
         <div className="text-center">
